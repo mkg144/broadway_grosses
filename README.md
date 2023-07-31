@@ -32,6 +32,7 @@ Some Technologies and Skills involved:
 - [Authentication](#authentication)
 - [Installation](#installation)
 - [Usage](#usage)
+- [ETL Relults](#etl results)
 
 ## Prerequisites
 
@@ -123,3 +124,9 @@ The method I will use to be able to run this app in Docker is to create a volume
    
    **>> Step 3: Copy/Paste the URL provided into your web browser to access the notebook interface.  It should look something like:**
    http://127.0.0.1:8888/tree?token=the_generated_token
+
+## ETL Results
+Here's a screenshot of the resulting BigQuery table after I've ETL'd a bunch of historical data
+*(hard to fit in all the columns in a screenshot, but you get the gist)*
+
+![A Screenshot of the resulting BigQuery table](images/screenshot_weekly_grosses_loaded.png)
