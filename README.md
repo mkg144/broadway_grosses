@@ -142,7 +142,7 @@ Parsing and cleaning the data was a little tricky.  I've only used BeautifulSoup
 
 Learning how to use Docker was very cool.  I'd briefly toyed with it a little bit a couple years back, but now I was able to implement a full project.  And I even got it set up so I can run a Jupyter kernel inside the container and access notebooks in my web browser.
 
-## <i id="future_work">Future Work</a>
+## <a id="future_work">Future Work</a>
 I plan to do some analysis of the data and create some visualizations next.
 
 The data I've collected, while there is a lot of historical data available, there aren't that many dimensions with which to cut it.  Things that would be interesting to add in would be the show type (eg. play/musical), Opening Date, Closing Date, creative personas, capitalization cost, weekly operational expenses, DID IT RECOUP!  There are so many other dimensions and facts that could relate well to doing an analyis of Broadway shows, understanding the performance of past productions, and what kinds of predictions can be made about future productions.
