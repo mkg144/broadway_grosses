@@ -7,6 +7,25 @@ ETL for Broadway Grosses is a program to extract data from a website containing 
 Also included in here is an analysis.ipynb.
 Currently empty, but some analysis to come on broadway grosses/attendance!
 
+My purpose for creating this project was to demonstrate different analytics skills, learn some new ones, and play around with data from an industry I'm passionate about.
+
+I started off with some ETL because it's hard to do analysis work without actual data 🙃
+
+Some Technologies and Skills involved:
+- Docker
+- Git
+- Google Cloud
+  - Account and project creation
+  - Setting up billing
+  - Creating service account
+  - Different authentication methods
+- Python
+  - pandas
+  - pandas_gbq
+  - bigquery
+  - re (regular expressions)
+  - BeautifulSoup4 (for parsing web data)
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
@@ -32,10 +51,12 @@ The method I will use to be able to run this app in Docker is to create a volume
 ## Installation
 
 1. Clone the repository:
+   ```
    git clone https://github.com/mkg144/broadway_grosses.git
    cd broadway_grosses
+   ```
 
-2. Create a table in BigQuery within the project you set up using below DDL:
+3. Create a table in BigQuery within the project you set up using below DDL:
    ```sql
    CREATE TABLE `your_project_id.your_dataset_name.your_table_name`
    (
