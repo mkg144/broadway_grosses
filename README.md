@@ -32,9 +32,11 @@ Some Technologies and Skills involved:
 - [Authentication](#authentication)
 - [Installation](#installation)
 - [Usage](#usage)
-- [ETL Relults](#etl results)
+- [ETL Results](#etl_results)
+- [Challenges](#challenges)
+- [Future Work](#future_work)
 
-## Prerequisites
+## <a id="prerequisites">Prerequisites
 
 1. A Docker Host
 2. A Google Cloud account:
@@ -43,13 +45,13 @@ Some Technologies and Skills involved:
    - Create a service account for the project and download the .json file to your local machine or wherever the Docker host is set up
     
 
-## Authentication
+## <a id="authentication">Authentication</a>
 
 In order to use Google Cloud resources, we need to make sure the app is authenticating with Google.  There are several different ways to do this... I won't explain them all here. 
 
 The method I will use to be able to run this app in Docker is to create a volume mount at runtime to mount my gcp_secret_key.json file to /app/gcp_secret_key.json.  This allows me to access files from my Windows host from within the container.
 
-## Installation
+## <a id="installation">Installation</a>
 
 1. Clone the repository:
    ```
@@ -83,7 +85,7 @@ The method I will use to be able to run this app in Docker is to create a volume
 
 4. Edit the variables **proj_id** and **dest_table** in the file main.py.  This should be changed to use the names of your Google Cloud Project ID, Dataset, and Table names.
 
-## Usage
+## <a id="usage">Usage</a>
 1. Build the Docker image (if not already built)
    ```docker build -t broadway_grosses_image .```
 
@@ -125,8 +127,22 @@ The method I will use to be able to run this app in Docker is to create a volume
    **>> Step 3: Copy/Paste the URL provided into your web browser to access the notebook interface.  It should look something like:**
    http://127.0.0.1:8888/tree?token=the_generated_token
 
-## ETL Results
+## <a id="etl_results">ETL Results</a>
 Here's a screenshot of the resulting BigQuery table after I've ETL'd a bunch of historical data
 *(hard to fit in all the columns in a screenshot, but you get the gist)*
 
 ![A Screenshot of the resulting BigQuery table](images/screenshot_weekly_grosses_loaded.png)
+
+## <a id="challenges">Challenges</a>
+Many challenges!  But they were fun to work through.
+
+In order to run queries on BigQuery or insert data with pandas_gbq within my python scripts, I have to have some sort of authentication process.  I was trying to figure out what the most secure method would be for my purposes.  In the end, when running this application locally (not on a Docker host), I use a GOOGLE_APPLICATION_CREDENTIALS environment variable on my local pc.  For running things on Docker, I mount the path to the secret .json file at runtime.
+
+Parsing and cleaning the data was a little tricky.  I've only used BeautifulSoup4 once or twice, but once I got the hang of it it was pretty straightforward.  There was a lot of time spent inspecting the website to figure out all of the html and css elements I would need.  Then making sure the datatypes for my columns were how I needed them to be to convert properly when loading to BigQuery took some playing around with.
+
+Learning how to use Docker was very cool.  I'd briefly toyed with it a little bit a couple years back, but now I was able to implement a full project.  And I even got it set up so I can run a Jupyter kernel inside the container and access notebooks in my web browser.
+
+## <i id="future_work">Future Work</a>
+I plan to do some analysis of the data and create some visualizations next.
+
+The data I've collected, while there is a lot of historical data available, there aren't that many dimensions with which to cut it.  Things that would be interesting to add in would be the show type (eg. play/musical), Opening Date, Closing Date, creative personas, capitalization cost, weekly operational expenses, DID IT RECOUP!  There are so many other dimensions and facts that could relate well to doing an analyis of Broadway shows, understanding the performance of past productions, and what kinds of predictions can be made about future productions.
