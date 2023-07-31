@@ -36,7 +36,7 @@ The method I will use to be able to run this app in Docker is to create a volume
    cd broadway_grosses
 
 2. Create a table in BigQuery within the project you set up using below DDL:
-   CREATE TABLE `your_project_id.your_dataset_name.your_table_name`
+   CREATE TABLE \`your_project_id.your_dataset_name.your_table_name\`
    (
       show_name STRING,
       venue_name STRING,
