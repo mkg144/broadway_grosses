@@ -1,0 +1,7 @@
+# generally exclude all notebooks from the docker image
+notebooks/*.ipynb
+
+notebooks/*.csv
+
+# include the analysis notebook
+!notebooks/analysis.ipynb
