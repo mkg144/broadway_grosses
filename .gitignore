@@ -1,0 +1,7 @@
+# generally exclude all notebooks from the github repo
+notebooks/*.ipynb
+
+notebooks/*.csv
+
+# include the analysis notebook
+!notebooks/analysis.ipynb
